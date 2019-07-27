@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
-public class ButtonService : ScriptableObject
+public class ButtonService 
 {
     public void SetText(Button button, string text)
     {

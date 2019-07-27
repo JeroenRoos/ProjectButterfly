@@ -29,19 +29,19 @@ public class MainMenuController : MonoBehaviour
 
     }
 
-    public void StartOnClick()
+    private void StartOnClick()
     {
         SceneManager.LoadSceneAsync("Level1");
     }
 
-    public void SettingsOnClick()
+    private void SettingsOnClick()
     {
         Debug.Log("Start onclick");
 
         // Do something
     }
 
-    public void ExitOnClick()
+    private void ExitOnClick()
     {
         Application.Quit();
     }
