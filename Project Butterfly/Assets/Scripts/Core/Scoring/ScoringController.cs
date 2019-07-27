@@ -16,6 +16,7 @@ public class ScoringController : MonoBehaviour
     {
         currentScore = 0;
 
+        scoreUI.color = Color.black;
         SetScoreText();
     }
 
