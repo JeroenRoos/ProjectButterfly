@@ -36,10 +36,14 @@ public class CharacterController2D : MonoBehaviour
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
+        {
             OnLandEvent = new UnityEvent();
+        }
 
         if (OnCrouchEvent == null)
+        {
             OnCrouchEvent = new BoolEvent();
+        }
     }
 
     private void FixedUpdate()
@@ -50,18 +54,21 @@ public class CharacterController2D : MonoBehaviour
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
                 s_Grounded = true;
+
                 if (!wasGrounded)
+                {
                     OnLandEvent.Invoke();
+                }
             }
         }
     }
-
 
     public void Move(float move, bool crouch, bool jump)
     {
@@ -78,7 +85,6 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-
             // If crouching
             if (crouch)
             {
@@ -93,13 +99,17 @@ public class CharacterController2D : MonoBehaviour
 
                 // Disable one of the colliders when crouching
                 if (m_CrouchDisableCollider != null)
+                {
                     m_CrouchDisableCollider.enabled = false;
+                }
             }
             else
             {
                 // Enable the collider when not crouching
                 if (m_CrouchDisableCollider != null)
+                {
                     m_CrouchDisableCollider.enabled = true;
+                }
 
                 if (m_wasCrouching)
                 {
@@ -110,6 +120,7 @@ public class CharacterController2D : MonoBehaviour
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
@@ -132,13 +143,11 @@ public class CharacterController2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            
         }
         else 
         {
             if (!m_Grounded && s_Grounded && jump)
             {
-
                 m_Rigidbody2D.velocity = new Vector3(move, .1f, 0);
                 Debug.Log(m_Rigidbody2D.velocity.y);
                 
@@ -148,7 +157,6 @@ public class CharacterController2D : MonoBehaviour
             }
         }
     }
-
 
     private void Flip()
     {
@@ -160,5 +168,4 @@ public class CharacterController2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
 }

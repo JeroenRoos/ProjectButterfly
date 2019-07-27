@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Deleter : MonoBehaviour
 {
@@ -19,5 +17,4 @@ public class Deleter : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 }

@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class Score : MonoBehaviour
 {
     public GameObject plyer;
     public TextMeshProUGUI scoreUI;
     public int xscore;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +19,5 @@ public class Score : MonoBehaviour
         float positie = plyer.transform.position.x;
         xscore = Mathf.RoundToInt(positie);
         scoreUI.text = xscore.ToString();
-
-        
     }
 }

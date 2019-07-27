@@ -1,22 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public CharacterController2D controller;
-   
-    
-    
     public float runSpeed = 20f;
-    
-
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
-    bool raakHetScherm = false;
-
+    bool touchesScreen = false;
 
     // Update is called once per frame
     void Update()
@@ -24,22 +16,17 @@ public class PlayerMovement : MonoBehaviour
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         horizontalMove = runSpeed;
 
-        if (Input.touchCount > 0 && raakHetScherm == false)
+        if (Input.touchCount > 0 && touchesScreen == false)
         {
-          
-             
             jump = true;
-            raakHetScherm = true;
-            
-            
-             
-        }
-        if(Input.touchCount == 0)
-        {
-            raakHetScherm = false;
-            Debug.Log(Input.touchCount);
+            touchesScreen = true;
         }
 
+        if (Input.touchCount == 0)
+        {
+            touchesScreen = false;
+            Debug.Log(Input.touchCount);
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -61,25 +48,18 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
         //PlayerCamera.transform. = new Vector3(horizontalMove, 0, 0);
-
     }
-    void OnTriggerEnter2D(Collider2D collision)
 
+    void OnTriggerEnter2D(Collider2D collision)
     {
-      
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("nu ben je dood");
-          
+
         }
         if (collision.gameObject.tag == "Coins")
         {
             Debug.Log("dcoins");
         }
-
-        }
-
+    }
 }
-
-
-

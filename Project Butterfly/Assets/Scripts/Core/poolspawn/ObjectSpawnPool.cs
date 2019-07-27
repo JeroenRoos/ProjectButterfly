@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawnPool : MonoBehaviour
@@ -10,23 +9,17 @@ public class ObjectSpawnPool : MonoBehaviour
         public string tag;
         public GameObject prefab;
         public int size;
-
-
     }
-    #region Singleton
+
     public static ObjectSpawnPool Instance;
 
     private void Awake()
     {
         Instance = this;
     }
-    #endregion
-
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-                
-    
     
     void Start()
     {
@@ -34,16 +27,19 @@ public class ObjectSpawnPool : MonoBehaviour
         foreach (Pool pool in pools)
         {
             Queue<GameObject> Spawnpool = new Queue<GameObject>();
+
             for (int i = 0; i < pool.size; i++)
             {
-               GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab);
+
                 obj.SetActive(true);
                 Spawnpool.Enqueue(obj);
-
             }
+
             poolDictionary.Add(pool.tag, Spawnpool);
         }
     }
+
     public GameObject SpawnUitDePool( string tag, Vector3 position)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -51,14 +47,15 @@ public class ObjectSpawnPool : MonoBehaviour
             Debug.LogWarning("pool met tag" + tag + "bestaat niet bro");
             return null;
         }
+
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
 
         IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
         if (pooledObj != null)
         {
-
             pooledObj.onObjectSpawn();
         }
 
@@ -66,5 +63,4 @@ public class ObjectSpawnPool : MonoBehaviour
 
         return objectToSpawn;
     }
-
 }

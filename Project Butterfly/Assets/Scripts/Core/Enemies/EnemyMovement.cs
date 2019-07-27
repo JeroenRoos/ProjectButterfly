@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BewegingScript : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float upForce = 0f;
     public float sideForce = -1f;
+
     public void Start()
     {
         float xForce = sideForce;
