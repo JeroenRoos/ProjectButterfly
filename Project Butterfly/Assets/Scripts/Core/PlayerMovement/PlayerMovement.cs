@@ -2,6 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int _coinScore = 10;
+
     // Start is called before the first frame update
     public CharacterController2D controller;
     public float runSpeed = 20f;
@@ -10,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     bool crouch = false;
     bool touchesScreen = false;
 
+    public ScoringController scoringController;
+
     // Update is called once per frame
     void Update()
     {
+        scoringController.UpdateScoreOnMovement(Mathf.RoundToInt(GetPlayerPosition()));
+
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         horizontalMove = runSpeed;
 
@@ -54,11 +60,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("nu ben je dood");
+            // Do something
         }
         else if (collision.gameObject.tag == "Coins")
         {
+            scoringController.UpdateScoreOnCoin(_coinScore);
             Destroy(collision.gameObject);
         }
+    }
+
+    private float GetPlayerPosition()
+    {
+        return this.transform.position.x;
     }
 }

@@ -5,8 +5,10 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public GameObject space;
-    public GameObject[] sPrefabs;
-    public GameObject[] enemy;
+    public GameObject[] coins;
+    public GameObject[] enemies;
+
+
     private Vector3 spawnObstaclePositionEnemy;
     private Vector3 spawnObstaclePositionCoin;
     private Vector3 spaceSpawnPos;
@@ -46,7 +48,7 @@ public class EnemyController : MonoBehaviour
         spawnObstaclePositionCoin = new Vector3(spawnObstaclePositionCoin.x + Random.Range(0.1f, 10f), Random.Range(-0.5f, 0.7f), 0);
 
         //Quaternion zorgt voor de ingestelde draai en alles
-        Instantiate(sPrefabs[(Random.Range(0, sPrefabs.Length))], spawnObstaclePositionCoin, Quaternion.identity); 
+        Instantiate(coins[(Random.Range(0, coins.Length))], spawnObstaclePositionCoin, Quaternion.identity); 
     }
 
     private void SpawnEnemy()
@@ -54,6 +56,6 @@ public class EnemyController : MonoBehaviour
         spawnObstaclePositionEnemy = new Vector3(spawnObstaclePositionEnemy.x +3.5f, -0.8f, 0);
 
         //Quaternion zorgt voor de ingestelde draai en alles
-        Instantiate(enemy[(Random.Range(0, enemy.Length))], spawnObstaclePositionEnemy, Quaternion.identity); 
+        Instantiate(enemies[(Random.Range(0, enemies.Length))], spawnObstaclePositionEnemy, Quaternion.identity); 
     }
 }
