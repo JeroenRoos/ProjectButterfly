@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public CharacterController2D controller;
+   
     
     
     public float runSpeed = 20f;
@@ -62,6 +63,22 @@ public class PlayerMovement : MonoBehaviour
         //PlayerCamera.transform. = new Vector3(horizontalMove, 0, 0);
 
     }
+    void OnTriggerEnter2D(Collider2D collision)
+
+    {
+      
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("nu ben je dood");
+          
+        }
+        if (collision.gameObject.tag == "Coins")
+        {
+            Debug.Log("dcoins");
+        }
+
+        }
+
 }
 
 

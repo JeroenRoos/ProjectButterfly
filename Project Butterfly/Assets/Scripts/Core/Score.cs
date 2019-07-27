@@ -7,7 +7,8 @@ public class Score : MonoBehaviour
 {
     public GameObject plyer;
     public TextMeshProUGUI scoreUI;
-    public int score;
+    public int xscore;
+
 
 
     // Start is called before the first frame update
@@ -20,7 +21,9 @@ public class Score : MonoBehaviour
     void Update()
     {
         float positie = plyer.transform.position.x;
-        score = Mathf.RoundToInt(positie);
-        scoreUI.text = score.ToString();
+        xscore = Mathf.RoundToInt(positie);
+        scoreUI.text = xscore.ToString();
+
+        
     }
 }

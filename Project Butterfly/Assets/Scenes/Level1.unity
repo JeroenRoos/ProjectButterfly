@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 332172076}
   m_Layer: 0
   m_Name: image 1
-  m_TagString: Untagged
+  m_TagString: Coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plyer: {fileID: 355906503}
   scoreUI: {fileID: 2115925646}
-  score: 0
+  xscore: 0
 --- !u!1 &355906503
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 355906507}
-  runSpeed: 20
+  runSpeed: 20.2
 --- !u!1 &413545639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1266470015
 MonoBehaviour:
   m_ObjectHideFlags: 0
