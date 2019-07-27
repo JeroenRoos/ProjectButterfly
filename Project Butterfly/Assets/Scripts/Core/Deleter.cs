@@ -12,7 +12,7 @@ public class Deleter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.x < player.transform.position.x - 2)
+        if (gameObject.transform.position.x < player.transform.position.x - 8)
         {
             Destroy(gameObject);
         }

@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        spawnObstaclePositionEnemy = new Vector3(spawnObstaclePositionEnemy.x + Random.Range(0.1f, 5f), -0.8f, 0);
+        spawnObstaclePositionEnemy = new Vector3(spawnObstaclePositionEnemy.x +3.5f, -0.8f, 0);
 
         //Quaternion zorgt voor de ingestelde draai en alles
         Instantiate(enemy[(Random.Range(0, enemy.Length))], spawnObstaclePositionEnemy, Quaternion.identity); 
