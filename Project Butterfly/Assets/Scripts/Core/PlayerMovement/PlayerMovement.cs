@@ -55,11 +55,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("nu ben je dood");
-
         }
-        if (collision.gameObject.tag == "Coins")
+        else if (collision.gameObject.tag == "Coins")
         {
-            Debug.Log("dcoins");
+            Destroy(collision.gameObject);
         }
     }
 }

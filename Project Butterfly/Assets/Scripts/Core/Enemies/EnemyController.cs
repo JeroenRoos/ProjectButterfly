@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
         //hoger getal en ze worden verderweg al gerenderd
         if (distanceToHorizon < 10)
         {
-            //SpawnCoins();
+            SpawnCoins();
 
             SpawnEnemy();
         }
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private void SpawnCoins()
     {
-        spawnObstaclePosition = new Vector3(spawnObstaclePosition.x + Random.Range(0.1f, 10f), Random.Range(-1, 2), 0);
+        spawnObstaclePosition = new Vector3(spawnObstaclePosition.x + Random.Range(0.1f, 10f), Random.Range(-0.5f, 0.7f), 0);
 
         //Quaternion zorgt voor de ingestelde draai en alles
         Instantiate(sPrefabs[(Random.Range(0, sPrefabs.Length))], spawnObstaclePosition, Quaternion.identity); 

@@ -27,6 +27,7 @@ public class BackgroundGeneration : MonoBehaviour
     IEnumerator BackTransfer()
     {
         gameObject.transform.parent.position = new Vector3(gameObject.transform.position.x + 7.43f, 0, 0);
+
         yield return new WaitForSeconds(1);
     }
 }
