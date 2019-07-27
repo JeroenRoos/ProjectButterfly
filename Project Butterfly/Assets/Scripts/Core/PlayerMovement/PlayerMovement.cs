@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
     bool touchesScreen = false;
+    bool drop = false;
+   
 
     public ScoringController scoringController;
 
@@ -24,14 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.touchCount > 0 && touchesScreen == false)
         {
-            jump = true;
-            touchesScreen = true;
+
+           
+                jump = true;
+
+                touchesScreen = true;
+            
         }
 
         if (Input.touchCount == 0)
         {
             touchesScreen = false;
+            //Debug.Log(Input.touchCount);
+        }
+        if (Input.touchCount == 2 )
+        {
             Debug.Log(Input.touchCount);
+            drop = true;
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -48,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
             crouch = false;
         }
     }
+   
 
     public void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, drop);
         jump = false;
-        //PlayerCamera.transform. = new Vector3(horizontalMove, 0, 0);
+        drop = false;
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -32,7 +32,7 @@ public class ScoringController : MonoBehaviour
     {
         if (score > 0)
         {
-            Debug.Log($"Updating score on movement: {score}");
+            //Debug.Log($"Updating score on movement: {score}");
             movementScore += (score - movementScore);
 
             SetScoreText();
@@ -41,7 +41,7 @@ public class ScoringController : MonoBehaviour
 
     private void SetScoreText()
     {
-        Debug.Log($"Updating current score: {currentScore}");
+        //Debug.Log($"Updating current score: {currentScore}");
         scoreUI.text = $"Score: {coinScore + movementScore}";
     }
 }
