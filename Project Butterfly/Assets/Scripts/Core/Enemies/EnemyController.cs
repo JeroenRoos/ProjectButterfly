@@ -4,10 +4,14 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
+    public GameObject space;
     public GameObject[] sPrefabs;
     public GameObject[] enemy;
     private Vector3 spawnObstaclePositionEnemy;
     private Vector3 spawnObstaclePositionCoin;
+    private Vector3 spaceSpawnPos;
+    private bool spaceBounce = false;
+
 
     void Update()
     {
@@ -20,10 +24,21 @@ public class EnemyController : MonoBehaviour
             SpawnEnemy();
         }
 
-        if (distanceToHorizonEnemy < 10)
+        if (distanceToHorizonCoin < 10)
         {
             SpawnCoins();
         }
+        if(!spaceBounce && player.gameObject.transform.position.y >= 0.6 )
+        {
+            spaceSpawnPos = new Vector3(player.gameObject.transform.position.x+3.3f, 3, 0);
+            Instantiate(space, spaceSpawnPos, Quaternion.identity);
+            spaceBounce = true;
+        }
+        if(player.gameObject.transform.position.y < 0.6)
+        {
+            spaceBounce = false;
+        }
+
     }
 
     private void SpawnCoins()
