@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343451988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8777777, y: 0, z: -10}
+  m_LocalPosition: {x: -1.8771143, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210779280}
@@ -331,9 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797ac901dc87d5641abc71d6c0f1109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plyer: {fileID: 355906503}
-  scoreUI: {fileID: 1847403764}
-  xscore: 0
 --- !u!1 &355906503
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 355906507}
   runSpeed: 20.2
+  scoringController: {fileID: 970868127}
 --- !u!1 &413545639
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,25 +558,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 355906503}
   space: {fileID: 2097963559783471158, guid: 783928e20585d99408736d59ef97caac, type: 3}
-  sPrefabs:
+  coins:
   - {fileID: 1981585103130090205, guid: 86f014b7ae53b864ca544c812227ebec, type: 3}
-  enemy:
-  - {fileID: 2212912456676294532, guid: 63dc10b6ab0ebcc4b828c9a48ca8bb28, type: 3}
-  - {fileID: 3493948741475875935, guid: 235234a08869f2c47a4a3bff71789e48, type: 3}
-  - {fileID: 7988480964698265582, guid: ef50620738f2207498d1ff2ce251abac, type: 3}
-  - {fileID: 182872127478157048, guid: cb98b46555f9a3b4ab868ac06ad7cd8a, type: 3}
-  - {fileID: 9210600089787399834, guid: e41d7430145a0944fa014e430a3ca376, type: 3}
-  - {fileID: 1041425130284821742, guid: 4b4d78720055d9a4582239325643a3ed, type: 3}
-  - {fileID: 3426396865594269848, guid: f473a72afd832a949bdd4ca0ce0f16f8, type: 3}
-  - {fileID: 2679555860004720461, guid: daa837413a5690e41ab5dd918d79a417, type: 3}
-  - {fileID: 7717855142187451316, guid: f61360365a5b0e64f8bd02fe8b492650, type: 3}
-  - {fileID: 5097298550224082684, guid: 89075d91b4f6c1e4a8b5c208f29f1696, type: 3}
-  - {fileID: 3514786721995424750, guid: b3d06c36640ce0f4d8664a7f788ef5a4, type: 3}
-  - {fileID: 8115481499428980152, guid: 9c1c1a3b427be194ab102135b72510ca, type: 3}
-  - {fileID: 2832715664693437924, guid: e24a92bcd0a37b44e94ac03b7bced0da, type: 3}
-  - {fileID: 1279473471544932159, guid: 6cc60500584ec6e46ba623713eb3d9cc, type: 3}
-  - {fileID: 6447507420559367127, guid: 6929109c076e62c408a911f88fea6c57, type: 3}
-  - {fileID: 7585611487083790241, guid: b9270784835788143aba77c0603625e3, type: 3}
+  enemies:
+  - {fileID: 0}
 --- !u!4 &413545641
 Transform:
   m_ObjectHideFlags: 0
@@ -957,6 +940,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &970868126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970868128}
+  - component: {fileID: 970868127}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &970868127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970868126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d221dba2c9174e498574e52bf67f163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 355906503}
+  scoreUI: {fileID: 1847403764}
+--- !u!4 &970868128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970868126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 107.25, y: 379.65625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084306890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152789633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8777777, y: 0, z: -10}
+  m_LocalPosition: {x: -1.8771143, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1293,10 +1321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d85f7f83edf9b840a7d565437c047a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - tag: Coin
-    prefab: {fileID: 0}
-    size: 5
 --- !u!4 &1266470016
 Transform:
   m_ObjectHideFlags: 0
