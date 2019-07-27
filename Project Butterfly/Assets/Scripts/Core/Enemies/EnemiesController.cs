@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Enemies : MonoBehaviour
+public class EnemiesController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
@@ -15,7 +15,7 @@ public class Enemies : MonoBehaviour
         //hoger getal en ze worden verderweg al gerenderd
         if (distanceToHorizon < 10)
         {
-            //SpawnCoins();
+            SpawnCoins();
 
             SpawnEnemy();
         }

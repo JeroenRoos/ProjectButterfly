@@ -13,7 +13,8 @@ public class LevelGeneratie : MonoBehaviour
 
     IEnumerator Transfer()
     {
-        gameObject.transform.parent.position = new Vector3(gameObject.transform.position.x +17.16f, -1,0);
+        gameObject.transform.parent.position = new Vector3(gameObject.transform.position.x + 17.16f, -1, 0);
 
         yield return new WaitForSeconds(1);
     }
+}
