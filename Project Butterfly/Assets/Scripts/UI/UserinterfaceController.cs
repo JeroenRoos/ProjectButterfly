@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UserinterfaceController : MonoBehaviour
 {
     public Canvas pauseMenuCanvas;
-    public RawImage modalBackground;
+    public Button modalBackground;
     public Button resumeButton;
     public Button hamburgerButton;
 
@@ -30,8 +31,9 @@ public class UserinterfaceController : MonoBehaviour
         hamburgerButton.onClick.AddListener(() => HamburgerOnClick());
 
         var backgroundColor = "#D3D3D399".ConvertToHexColor();
-        modalBackground.color = backgroundColor;
-        //modalBackground.onClick.AddListener(() => HamburgerOnClick());
+        modalBackground.image.color = backgroundColor;
+        ServiceLocator.ButtonService.SetText(modalBackground, string.Empty);
+        modalBackground.onClick.AddListener(() => BackgroundOnClick());
     }
 
     private void ResumeOnClick()
@@ -43,5 +45,10 @@ public class UserinterfaceController : MonoBehaviour
     private void HamburgerOnClick()
     {
         InitializePauseMenu();
+    }
+
+    private void BackgroundOnClick()
+    {
+        ResumeOnClick();
     }
 }

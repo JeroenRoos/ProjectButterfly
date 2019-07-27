@@ -8,7 +8,6 @@ public class ScoringController : MonoBehaviour
 
     private int coinScore;
     private int movementScore;
-
     private int currentScore;
 
     // Start is called before the first frame update
@@ -22,7 +21,6 @@ public class ScoringController : MonoBehaviour
 
     public void UpdateScoreOnCoin(int score)
     {
-        Debug.Log($"Updating score on coin grab: {score}");
         coinScore += score;
 
         SetScoreText();
@@ -32,7 +30,6 @@ public class ScoringController : MonoBehaviour
     {
         if (score > 0)
         {
-            //Debug.Log($"Updating score on movement: {score}");
             movementScore += (score - movementScore);
 
             SetScoreText();
@@ -41,7 +38,6 @@ public class ScoringController : MonoBehaviour
 
     private void SetScoreText()
     {
-        //Debug.Log($"Updating current score: {currentScore}");
         scoreUI.text = $"Score: {coinScore + movementScore}";
     }
 }
