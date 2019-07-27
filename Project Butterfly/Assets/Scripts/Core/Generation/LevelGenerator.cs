@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelGeneratie : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
