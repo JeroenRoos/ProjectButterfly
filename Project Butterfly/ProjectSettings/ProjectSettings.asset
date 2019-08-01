@@ -699,10 +699,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 121bdb58-8a59-4cc0-9fa2-ddad0dc8da83
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Project Butterfly
+  organizationId: koosebbing
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

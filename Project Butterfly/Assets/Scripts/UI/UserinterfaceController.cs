@@ -8,12 +8,29 @@ public class UserinterfaceController : MonoBehaviour
     public Button modalBackground;
     public Button resumeButton;
     public Button hamburgerButton;
+    public Canvas gameoverMenuCanvas;
 
     private void Start()
     {
         pauseMenuCanvas.gameObject.SetActive(false);
+        gameoverMenuCanvas.gameObject.SetActive(false);
 
         InitializeUserInterface();
+    }
+    public static void DeathStart()
+    {
+        //Time.timeScale = 0;
+        UserinterfaceController yo = new UserinterfaceController();
+        yo.DeathSecond();
+
+         
+    }
+    public  void DeathSecond()
+    {
+        Time.timeScale = 0;
+        gameoverMenuCanvas.gameObject.SetActive(true);
+
+         
     }
 
     private void InitializePauseMenu()

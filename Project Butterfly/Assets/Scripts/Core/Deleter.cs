@@ -17,4 +17,6 @@ public class Deleter : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+   
 }

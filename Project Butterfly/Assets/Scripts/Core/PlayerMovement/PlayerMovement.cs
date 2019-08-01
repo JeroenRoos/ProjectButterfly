@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     private const int _coinScore = 10;
-
+    
     // Start is called before the first frame update
     public CharacterController2D controller;
     public float runSpeed = 20f;
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            // Do something
+            UserinterfaceController.DeathStart();
         }
         else if (collision.gameObject.tag == "Coins")
         {
